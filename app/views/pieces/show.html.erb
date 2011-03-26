@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @piece.title %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @piece.notes %>
+</p>
+
+<p>
+  <b>Composer:</b>
+  <%= @piece.composer %>
+</p>
+
+<p>
+  <b>Date composed:</b>
+  <%= @piece.date_composed %>
+</p>
+
+<p>
+  <b>Difficulty:</b>
+  <%= @piece.difficulty %>
+</p>
+
+
+<%= link_to 'Edit', edit_piece_path(@piece) %> |
+<%= link_to 'Back', pieces_path %>

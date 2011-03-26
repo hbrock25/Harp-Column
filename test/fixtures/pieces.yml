@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  notes: MyText
+  composer: MyString
+  date_composed: 2011-03-26
+  difficulty: 1
+
+two:
+  title: MyString
+  notes: MyText
+  composer: MyString
+  date_composed: 2011-03-26
+  difficulty: 1

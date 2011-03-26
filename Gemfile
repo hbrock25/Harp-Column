@@ -1,9 +1,14 @@
 source 'http://rubygems.org'
 
-# gem 'rails', '3.0.5'
+gem 'rails', '3.0.5'
 
 # Bundle edge Rails instead:
-gem 'rails', :git => 'git://github.com/rails/rails.git'
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+gem 'sqlite3'
+
+# Temporary hack for Devise API breakage
+gem 'devise', '~>1.1.1'
 
 # gem 'pg'
 
@@ -20,7 +25,7 @@ gem 'rails', :git => 'git://github.com/rails/rails.git'
 # Bundle the extra gems:
 # gem 'bj'
 gem 'nokogiri'
-gem 'sqlite3-ruby', :require => 'sqlite3'
+# gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'aws-s3', :require => 'aws/s3'
 
 gem 'refinerycms'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110310131644) do
+ActiveRecord::Schema.define(:version => 20110326200657) do
 
   create_table "blog_categories", :force => true do |t|
     t.string   "title"
@@ -107,11 +107,11 @@ ActiveRecord::Schema.define(:version => 20110310131644) do
   create_table "page_translations", :force => true do |t|
     t.integer  "page_id"
     t.string   "locale"
-    t.string   "browser_title"
     t.string   "title"
-    t.string   "custom_title"
     t.string   "meta_keywords"
     t.text     "meta_description"
+    t.string   "browser_title"
+    t.string   "custom_title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -145,6 +145,16 @@ ActiveRecord::Schema.define(:version => 20110310131644) do
   add_index "pages", ["lft"], :name => "index_pages_on_lft"
   add_index "pages", ["parent_id"], :name => "index_pages_on_parent_id"
   add_index "pages", ["rgt"], :name => "index_pages_on_rgt"
+
+  create_table "pieces", :force => true do |t|
+    t.string   "title"
+    t.text     "notes"
+    t.string   "composer"
+    t.date     "date_composed"
+    t.integer  "difficulty"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "portfolio_entries", :force => true do |t|
     t.string   "title"
