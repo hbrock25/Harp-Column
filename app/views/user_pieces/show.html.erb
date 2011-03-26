@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Notes:</b>
+  <%= @user_piece.notes %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @user_piece.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_piece_path(@user_piece) %> |
+<%= link_to 'Back', user_pieces_path %>

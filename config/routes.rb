@@ -1,4 +1,6 @@
 Harpcolumn::Application.routes.draw do
+  resources :user_pieces
+
   resources :pieces
 
   # The priority is based upon order of creation:
