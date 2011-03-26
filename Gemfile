@@ -7,9 +7,6 @@ gem 'rails', '3.0.5'
 
 gem 'sqlite3'
 
-# Temporary hack for Devise API breakage
-gem 'devise', '~>1.1.1'
-
 # gem 'pg'
 
 # Use unicorn as the web server
