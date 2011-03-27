@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110327180744) do
+ActiveRecord::Schema.define(:version => 20110327202111) do
 
   create_table "blog_categories", :force => true do |t|
     t.string   "title"
@@ -51,6 +51,19 @@ ActiveRecord::Schema.define(:version => 20110327180744) do
   end
 
   add_index "blog_posts", ["id"], :name => "index_blog_posts_on_id"
+
+  create_table "harps", :force => true do |t|
+    t.string   "manufacturer"
+    t.string   "model"
+    t.integer  "number_or_strings"
+    t.string   "size"
+    t.string   "color"
+    t.date     "build_date"
+    t.integer  "serial_number"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "images", :force => true do |t|
     t.string   "image_mime_type"
@@ -229,6 +242,7 @@ ActiveRecord::Schema.define(:version => 20110327180744) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "piece_id"
+    t.integer  "user_id"
   end
 
   create_table "user_plugins", :force => true do |t|

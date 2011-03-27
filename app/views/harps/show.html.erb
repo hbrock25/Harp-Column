@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Manufacturer:</b>
+  <%= @harp.manufacturer %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @harp.model %>
+</p>
+
+<p>
+  <b>Number or strings:</b>
+  <%= @harp.number_or_strings %>
+</p>
+
+<p>
+  <b>Size:</b>
+  <%= @harp.size %>
+</p>
+
+<p>
+  <b>Color:</b>
+  <%= @harp.color %>
+</p>
+
+<p>
+  <b>Build date:</b>
+  <%= @harp.build_date %>
+</p>
+
+<p>
+  <b>Serial number:</b>
+  <%= @harp.serial_number %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @harp.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_harp_path(@harp) %> |
+<%= link_to 'Back', harps_path %>

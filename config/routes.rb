@@ -1,4 +1,6 @@
 Harpcolumn::Application.routes.draw do
+  resources :harps
+
   resources :user_pieces
 
   resources :pieces

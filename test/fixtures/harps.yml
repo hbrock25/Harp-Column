@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  manufacturer: MyString
+  model: MyString
+  number_or_strings: 1
+  size: MyString
+  color: MyString
+  build_date: 2011-03-27
+  serial_number: 1
+  description: MyText
+
+two:
+  manufacturer: MyString
+  model: MyString
+  number_or_strings: 1
+  size: MyString
+  color: MyString
+  build_date: 2011-03-27
+  serial_number: 1
+  description: MyText

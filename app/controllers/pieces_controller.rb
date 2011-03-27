@@ -1,4 +1,5 @@
 class PiecesController < ApplicationController
+  skip_before_filter :authenticate_user!, :only => [:index, :show]
   # GET /pieces
   # GET /pieces.xml
   def index
