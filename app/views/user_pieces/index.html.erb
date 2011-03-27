@@ -1,7 +1,9 @@
-<h1>Listing user_pieces</h1>
+<h1>Pieces in my studio</h1>
 
 <table>
   <tr>
+    <th>Title</th>
+    <th>Composer</th>
     <th>Notes</th>
     <th>Status</th>
     <th></th>
@@ -11,6 +13,8 @@
 
 <% @user_pieces.each do |user_piece| %>
   <tr>
+    <td><%= user_piece.piece.title %></td>
+    <td><%= user_piece.piece.composer %></td>
     <td><%= user_piece.notes %></td>
     <td><%= user_piece.status %></td>
     <td><%= link_to 'Show', user_piece %></td>
