@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110326205324) do
+ActiveRecord::Schema.define(:version => 20110327180744) do
 
   create_table "blog_categories", :force => true do |t|
     t.string   "title"
@@ -228,6 +228,7 @@ ActiveRecord::Schema.define(:version => 20110326205324) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "piece_id"
   end
 
   create_table "user_plugins", :force => true do |t|

@@ -11,6 +11,14 @@
     </div>
   <% end %>
 
+  <!-- Choose a piece here, XXX replace with javascript -->
+
+  <div class="select">
+    <%= f.label :piece_id %>
+    <%= f.collection_select(:piece_id, Piece.all, :id, :title)
+    %>
+  </div>
+
   <div class="field">
     <%= f.label :notes %><br />
     <%= f.text_area :notes %>
