@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110327202111) do
+ActiveRecord::Schema.define(:version => 20110328120228) do
 
   create_table "blog_categories", :force => true do |t|
     t.string   "title"
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(:version => 20110327202111) do
   create_table "harps", :force => true do |t|
     t.string   "manufacturer"
     t.string   "model"
-    t.integer  "number_or_strings"
     t.string   "size"
     t.string   "color"
     t.date     "build_date"
@@ -63,6 +62,8 @@ ActiveRecord::Schema.define(:version => 20110327202111) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "number_of_strings"
   end
 
   create_table "images", :force => true do |t|
@@ -158,6 +159,16 @@ ActiveRecord::Schema.define(:version => 20110327202111) do
   add_index "pages", ["lft"], :name => "index_pages_on_lft"
   add_index "pages", ["parent_id"], :name => "index_pages_on_parent_id"
   add_index "pages", ["rgt"], :name => "index_pages_on_rgt"
+
+  create_table "performances", :force => true do |t|
+    t.string   "name"
+    t.date     "date"
+    t.integer  "venue_id"
+    t.integer  "user_id"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pieces", :force => true do |t|
     t.string   "title"
@@ -274,5 +285,14 @@ ActiveRecord::Schema.define(:version => 20110327202111) do
   end
 
   add_index "users", ["id"], :name => "index_users_on_id"
+
+  create_table "venues", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.float    "location_latitude"
+    t.float    "location_longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

@@ -26,7 +26,6 @@ class UserPiecesController < ApplicationController
   # GET /user_pieces/new.xml
   def new
     @user_piece = UserPiece.new
-    before_filter :authenticate_user!
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,6 +42,8 @@ class UserPiecesController < ApplicationController
   # POST /user_pieces.xml
   def create
     @user_piece = UserPiece.new(params[:user_piece])
+    @user_piece.user_id = current_user
+
     respond_to do |format|
       if @user_piece.save
         format.html { redirect_to(@user_piece, :notice => 'User piece was successfully created.') }

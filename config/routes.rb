@@ -1,4 +1,8 @@
 Harpcolumn::Application.routes.draw do
+  resources :performances
+
+  resources :venues
+
   resources :harps
 
   resources :user_pieces

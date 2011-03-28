@@ -26,7 +26,7 @@ class HarpsController < ApplicationController
   # GET /harps/new.xml
   def new
     @harp = Harp.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @harp }
@@ -42,7 +42,7 @@ class HarpsController < ApplicationController
   # POST /harps.xml
   def create
     @harp = Harp.new(params[:harp])
-
+    @harp.user_id = current_user
     respond_to do |format|
       if @harp.save
         format.html { redirect_to(@harp, :notice => 'Harp was successfully created.') }
@@ -58,7 +58,7 @@ class HarpsController < ApplicationController
   # PUT /harps/1.xml
   def update
     @harp = Harp.find(params[:id])
-
+    
     respond_to do |format|
       if @harp.update_attributes(params[:harp])
         format.html { redirect_to(@harp, :notice => 'Harp was successfully updated.') }
