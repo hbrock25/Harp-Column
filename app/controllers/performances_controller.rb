@@ -1,4 +1,5 @@
 class PerformancesController < ApplicationController
+  skip_before_filter :authenticate_user!, :only => [:index, :show]
   # GET /performances
   # GET /performances.xml
   def index
@@ -41,6 +42,7 @@ class PerformancesController < ApplicationController
   # POST /performances.xml
   def create
     @performance = Performance.new(params[:performance])
+    @performance.user_id = current_user
 
     respond_to do |format|
       if @performance.save
