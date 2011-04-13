@@ -3,7 +3,9 @@
 one:
   notes: MyText
   status: MyString
+  piece: one
 
 two:
   notes: MyText
   status: MyString
+  piece: two

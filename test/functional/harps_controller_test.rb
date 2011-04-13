@@ -3,6 +3,8 @@ require 'test_helper'
 class HarpsControllerTest < ActionController::TestCase
   setup do
     @harp = harps(:one)
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    sign_in users(:user1)
   end
 
   test "should get index" do

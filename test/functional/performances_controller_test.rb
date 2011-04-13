@@ -3,6 +3,8 @@ require 'test_helper'
 class PerformancesControllerTest < ActionController::TestCase
   setup do
     @performance = performances(:one)
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    sign_in users(:user1)
   end
 
   test "should get index" do

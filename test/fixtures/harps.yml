@@ -3,7 +3,7 @@
 one:
   manufacturer: MyString
   model: MyString
-  number_or_strings: 1
+  number_of_strings: 1
   size: MyString
   color: MyString
   build_date: 2011-03-27
@@ -13,7 +13,7 @@ one:
 two:
   manufacturer: MyString
   model: MyString
-  number_or_strings: 1
+  number_of_strings: 1
   size: MyString
   color: MyString
   build_date: 2011-03-27
