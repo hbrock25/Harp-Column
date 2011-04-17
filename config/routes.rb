@@ -1,4 +1,8 @@
 Harpcolumn::Application.routes.draw do
+  get "my_studio/index"
+  get 'my_studio' => 'my_studio#index'
+
+
   resources :hc_users
 
   resources :performances

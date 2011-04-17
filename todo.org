@@ -1,13 +1,14 @@
 * music stand
 ** Basic model interactions
-   + Allow user to create performance, user is automatically added
-   + Test
-   + Allow user to create user_piece, user is automatically added
-   + Test
-   + Allow user to create harp, user is automatically added
-   + Test
+   + Allow user to create performance, user is automatically added DONE
+   + Test DONE
+   + Allow user to create user_piece, user is automatically added DONE
+   + Test DONE
+   + Allow user to create harp, user is automatically added DONE
+   + Test DONE
    + Create music-stand page with basic navigation to facilitate above
-   + Test
+     DONE
+   + Test DONE
    + Allow user to add existing user_pieces to new performance (nested
      forms)
    + Test
@@ -27,3 +28,6 @@
 ** Forums
    + Allow users to link all above to forums (borrow forums from CE)
    + Test
+** Fixes
+   + Eliminate HcUser class, use metaprogramming to open exiting User
+     model and add required relationships.
