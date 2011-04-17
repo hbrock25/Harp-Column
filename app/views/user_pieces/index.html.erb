@@ -7,6 +7,7 @@
     <th>Composer</th>
     <th>Notes</th>
     <th>Status</th>
+    <th>Performances</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,6 +20,9 @@
     <td><%= user_piece.piece.composer %></td>
     <td><%= user_piece.notes %></td>
     <td><%= user_piece.status %></td>
+    <td><% user_piece.performances.each do |perf| %>
+	<%= link_to perf.name, perf %><br />
+    <% end %></td>
     <td><%= link_to 'Show', user_piece %></td>
     <td><%= link_to 'Edit', edit_user_piece_path(user_piece) %></td>
     <td><%= link_to 'Destroy', user_piece, :confirm => 'Are you sure?', :method => :delete %></td>

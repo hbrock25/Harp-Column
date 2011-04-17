@@ -1,12 +1,12 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
+verizon_hall:
   name: MyString
   description: MyText
   location_latitude: 1.5
   location_longitude: 1.5
 
-two:
+perelman_theater:
   name: MyString
   description: MyText
   location_latitude: 1.5

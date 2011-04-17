@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserPiecesControllerTest < ActionController::TestCase
   setup do
-    @user_piece = user_pieces(:one)
+    @user_piece = user_pieces(:handel_concerto)
     @request.env["devise.mapping"] = Devise.mappings[:user]
     sign_in users(:user1)
   end

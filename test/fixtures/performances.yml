@@ -1,15 +1,17 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
+junior_recital:
+  name: Junior Recital
   date: 2011-03-28
-  venue_id: 1
+  venue: perelman_theater
   hc_user_id: 1
   url: MyString
+  user_pieces: handel_concerto, hindemith_sonatine
 
-two:
-  name: MyString
+senior_recital:
+  name: Senior Recital
   date: 2011-03-28
-  venue_id: 1
+  venue: verizon_hall
   hc_user_id: 2
   url: MyString
+  user_pieces: hindemith_sonatine

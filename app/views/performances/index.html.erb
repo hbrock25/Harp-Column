@@ -20,7 +20,7 @@
     <td><%= performance.url %></td>
     <td><% performance.user_pieces.each do |up| %>
 	<%= link_to up.title, up %><br />
-	<% end %></td>
+    <% end %></td>
     <td><%= link_to 'Show', performance %></td>
     <td><%= link_to 'Edit', edit_performance_path(performance) %></td>
     <td><%= link_to 'Destroy', performance, :confirm => 'Are you sure?', :method => :delete %></td>

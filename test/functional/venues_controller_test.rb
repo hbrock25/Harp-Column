@@ -2,7 +2,7 @@ require 'test_helper'
 
 class VenuesControllerTest < ActionController::TestCase
   setup do
-    @venue = venues(:one)
+    @venue = venues(:perelman_theater)
     @request.env["devise.mapping"] = Devise.mappings[:user]
     sign_in users(:user1)
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110417173204) do
+ActiveRecord::Schema.define(:version => 20110417181528) do
 
   create_table "blog_categories", :force => true do |t|
     t.string   "title"
@@ -65,6 +65,13 @@ ActiveRecord::Schema.define(:version => 20110417173204) do
     t.integer  "hc_user_id"
     t.integer  "number_of_strings"
   end
+
+  create_table "harps_performances", :id => false, :force => true do |t|
+    t.integer "harp_id",        :null => false
+    t.integer "performance_id", :null => false
+  end
+
+  add_index "harps_performances", ["harp_id", "performance_id"], :name => "harps_performances_idx", :unique => true
 
   create_table "images", :force => true do |t|
     t.string   "image_mime_type"
@@ -174,6 +181,8 @@ ActiveRecord::Schema.define(:version => 20110417173204) do
     t.integer "user_piece_id",  :null => false
     t.integer "performance_id", :null => false
   end
+
+  add_index "performances_user_pieces", ["user_piece_id", "performance_id"], :name => "performances_user_pieces_idx", :unique => true
 
   create_table "pieces", :force => true do |t|
     t.string   "title"

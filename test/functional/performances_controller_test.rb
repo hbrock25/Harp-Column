@@ -2,8 +2,8 @@ require 'test_helper'
 
 class PerformancesControllerTest < ActionController::TestCase
   setup do
-    @performance = performances(:one)
-    @user_piece = user_pieces(:one)
+    @performance = performances(:junior_recital)
+    @user_piece = user_pieces(:handel_concerto)
     @request.env["devise.mapping"] = Devise.mappings[:user]
     sign_in users(:user1)
   end

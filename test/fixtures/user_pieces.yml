@@ -1,13 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
+handel_concerto:
   notes: MyText
   status: MyString
-  piece: one
+  piece: handel_concerto
   hc_user_id: 1
 
-two:
+hindemith_sonatine:
   notes: MyText
   status: MyString
-  piece: two
+  piece: hindemith_sonatine
   hc_user_id: 2

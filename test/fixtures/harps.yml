@@ -1,6 +1,6 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
+style_30:
   manufacturer: MyString
   model: MyString
   number_of_strings: 1
@@ -10,8 +10,9 @@ one:
   serial_number: 1
   description: MyText
   hc_user_id: 1
+  performances: junior_recital, senior_recital
 
-two:
+atlantide:
   manufacturer: MyString
   model: MyString
   number_of_strings: 1
@@ -21,3 +22,4 @@ two:
   serial_number: 1
   description: MyText
   hc_user_id: 2
+  performances: senior_recital
