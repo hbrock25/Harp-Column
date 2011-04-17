@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Owner</th>
     <th>Manufacturer</th>
     <th>Model</th>
     <th>Number or strings</th>
@@ -17,6 +18,7 @@
 
 <% @harps.each do |harp| %>
   <tr>
+    <td><%= harp.hc_user.username %></td>
     <td><%= harp.manufacturer %></td>
     <td><%= harp.model %></td>
     <td><%= harp.number_of_strings %></td>

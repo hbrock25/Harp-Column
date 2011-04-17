@@ -1,3 +1,3 @@
 class Harp < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :hc_user
 end

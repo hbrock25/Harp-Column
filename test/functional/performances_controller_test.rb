@@ -3,6 +3,7 @@ require 'test_helper'
 class PerformancesControllerTest < ActionController::TestCase
   setup do
     @performance = performances(:one)
+    @user_piece = user_pieces(:one)
     @request.env["devise.mapping"] = Devise.mappings[:user]
     sign_in users(:user1)
   end
@@ -48,4 +49,5 @@ class PerformancesControllerTest < ActionController::TestCase
 
     assert_redirected_to performances_path
   end
+
 end

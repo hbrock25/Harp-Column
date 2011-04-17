@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Owner</th>
     <th>Title</th>
     <th>Composer</th>
     <th>Notes</th>
@@ -13,6 +14,7 @@
 
 <% @user_pieces.each do |user_piece| %>
   <tr>
+    <td><%= user_piece.hc_user.username %></td>
     <td><%= user_piece.piece.title %></td>
     <td><%= user_piece.piece.composer %></td>
     <td><%= user_piece.notes %></td>

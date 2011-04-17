@@ -1,6 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Owner:</b>
+  <%= @user_piece.hc_user.username %>
+</p>
+
+<P>
+  <b>Title:</b>
+  <%= @user_piece.piece.title %>
+</P>
+
+<p>
+  <b>Composer:</b>
+  <%= @user_piece.piece.composer %>
+</p>
+
+<p>
   <b>Notes:</b>
   <%= @user_piece.notes %>
 </p>

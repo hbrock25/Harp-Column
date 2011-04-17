@@ -1,24 +1,26 @@
 <h1>Listing performances</h1>
 
-<table>
+<table border="1">
   <tr>
     <th>Name</th>
     <th>Date</th>
     <th>Venue</th>
     <th>User</th>
     <th>Url</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Pieces</th>
+    <th colspan="3">Actions</th>
   </tr>
 
 <% @performances.each do |performance| %>
-  <tr>
+  <tr valign="top">
     <td><%= performance.name %></td>
     <td><%= performance.date %></td>
     <td><%= performance.venue_id %></td>
-    <td><%= performance.user_id %></td>
+    <td><%= performance.hc_user.username %></td>
     <td><%= performance.url %></td>
+    <td><% performance.user_pieces.each do |up| %>
+	<%= link_to up.title, up %><br />
+	<% end %></td>
     <td><%= link_to 'Show', performance %></td>
     <td><%= link_to 'Edit', edit_performance_path(performance) %></td>
     <td><%= link_to 'Destroy', performance, :confirm => 'Are you sure?', :method => :delete %></td>

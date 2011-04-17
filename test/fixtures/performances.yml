@@ -4,12 +4,12 @@ one:
   name: MyString
   date: 2011-03-28
   venue_id: 1
-  user_id: 1
+  hc_user_id: 1
   url: MyString
 
 two:
   name: MyString
   date: 2011-03-28
   venue_id: 1
-  user_id: 1
+  hc_user_id: 2
   url: MyString

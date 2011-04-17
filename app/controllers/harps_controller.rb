@@ -42,7 +42,7 @@ class HarpsController < ApplicationController
   # POST /harps.xml
   def create
     @harp = Harp.new(params[:harp])
-    @harp.user_id = current_user
+    @harp.hc_user = current_user
     respond_to do |format|
       if @harp.save
         format.html { redirect_to(@harp, :notice => 'Harp was successfully created.') }

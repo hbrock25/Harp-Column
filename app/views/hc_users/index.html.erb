@@ -1,0 +1,21 @@
+<h1>Listing hc_users</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @hc_users.each do |hc_user| %>
+  <tr>
+    <td><%= link_to 'Show', hc_user %></td>
+    <td><%= link_to 'Edit', edit_hc_user_path(hc_user) %></td>
+    <td><%= link_to 'Destroy', hc_user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Hc user', new_hc_user_path %>

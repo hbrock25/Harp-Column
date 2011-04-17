@@ -42,7 +42,7 @@ class UserPiecesController < ApplicationController
   # POST /user_pieces.xml
   def create
     @user_piece = UserPiece.new(params[:user_piece])
-    @user_piece.user_id = current_user
+    @user_piece.hc_user = current_user
 
     respond_to do |format|
       if @user_piece.save

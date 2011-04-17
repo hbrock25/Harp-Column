@@ -42,7 +42,7 @@ class PerformancesController < ApplicationController
   # POST /performances.xml
   def create
     @performance = Performance.new(params[:performance])
-    @performance.user_id = current_user
+    @performance.hc_user = current_user
 
     respond_to do |format|
       if @performance.save

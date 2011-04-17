@@ -9,6 +9,7 @@ one:
   build_date: 2011-03-27
   serial_number: 1
   description: MyText
+  hc_user_id: 1
 
 two:
   manufacturer: MyString
@@ -19,3 +20,4 @@ two:
   build_date: 2011-03-27
   serial_number: 1
   description: MyText
+  hc_user_id: 2

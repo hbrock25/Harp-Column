@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110328120228) do
+ActiveRecord::Schema.define(:version => 20110417173204) do
 
   create_table "blog_categories", :force => true do |t|
     t.string   "title"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20110328120228) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer  "hc_user_id"
     t.integer  "number_of_strings"
   end
 
@@ -164,10 +164,15 @@ ActiveRecord::Schema.define(:version => 20110328120228) do
     t.string   "name"
     t.date     "date"
     t.integer  "venue_id"
-    t.integer  "user_id"
+    t.integer  "hc_user_id"
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "performances_user_pieces", :id => false, :force => true do |t|
+    t.integer "user_piece_id",  :null => false
+    t.integer "performance_id", :null => false
   end
 
   create_table "pieces", :force => true do |t|
@@ -253,7 +258,7 @@ ActiveRecord::Schema.define(:version => 20110328120228) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "piece_id"
-    t.integer  "user_id"
+    t.integer  "hc_user_id"
   end
 
   create_table "user_plugins", :force => true do |t|
@@ -282,6 +287,7 @@ ActiveRecord::Schema.define(:version => 20110328120228) do
     t.string   "remember_token"
     t.string   "reset_password_token"
     t.datetime "remember_created_at"
+    t.string   "type"
   end
 
   add_index "users", ["id"], :name => "index_users_on_id"
