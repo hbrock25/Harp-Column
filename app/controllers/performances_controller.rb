@@ -26,7 +26,8 @@ class PerformancesController < ApplicationController
   # GET /performances/new.xml
   def new
     @performance = Performance.new
-
+    @user_pieces = current_user.user_pieces
+    @venues = Venue.all
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @performance }
@@ -36,6 +37,7 @@ class PerformancesController < ApplicationController
   # GET /performances/1/edit
   def edit
     @performance = Performance.find(params[:id])
+    @user_pieces = current_user.user_pieces
   end
 
   # POST /performances
@@ -82,4 +84,5 @@ class PerformancesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
 end

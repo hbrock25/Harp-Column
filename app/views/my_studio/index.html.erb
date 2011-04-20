@@ -1,0 +1,49 @@
+<h1>My Studio</h1>
+<section id="body_content">
+<% 5.times do %>
+  <p><strong>Suzy Harpist</strong> I've been practicing and practicing
+    and practicing so very long and I just can't stop! Somebody please
+    help!</p>
+<% end %>
+</section>
+<section id="side_body_content">
+<h2>Pieces In Progress</h2>
+<p><%= link_to "Add a Piece", new_user_piece_path %></p>
+<table>
+  <% @user.user_pieces.each do |up| %>
+    <tr valign="top">
+      <td><%= link_to(up.piece.title, up) %>, by <%= up.piece.composer %></td>
+      <td>Status: <%= up.status %></td>
+    </tr>
+    <% end %>
+</table>
+<h2>Performances</h2>
+<p><%= link_to "Add a Performance", new_performance_path %></p>
+<table>
+  <% @performances.each do |perf| %>
+    <tr valign="top">
+      <td><%= link_to(perf.name, perf) %> at </td>
+      <% if (perf.venue) %>
+	<td><%= link_to(perf.venue.name, perf.venue) %></td>
+      <% else %>
+	<td>No venue selected</td>
+      <% end %>
+    </tr>
+    <% perf.user_pieces.each do |up| %>
+	<tr>
+	  <td colspan="2">&nbsp;<%= link_to(up.piece.title, up.piece) %>, by
+	  <%= up.piece.composer %> </td>
+	</tr>
+    <% end %>
+  <% end %>
+</table>
+<h2>Harps</h2>
+<p><%= link_to "Add a Harp", new_harp_path %></p>
+<table>
+  <% @user.harps.each do |harp| %>
+    <tr valign="top">
+      <td><%= link_to(harp.manufacturer, harp) %> <%= harp.model %> </td>
+    </tr>
+  <% end %>
+</table>
+</section>

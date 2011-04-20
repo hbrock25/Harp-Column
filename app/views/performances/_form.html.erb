@@ -19,6 +19,15 @@
     <%= f.label :date %><br />
     <%= f.date_select :date %>
   </div>
+  <div class="select">
+      <%= f.label :user_piece_id %>
+      <%= f.collection_select(:user_piece_ids, @user_pieces, :id,
+			      :title, 
+			      {}, { 
+				:selected => @performance.user_piece_ids,
+				:multiple => true, 
+				:name => 'performance[user_piece_ids][]' }) %>
+  </div>
   <div class="field">
     <%= f.label :venue_id %><br />
     <%= f.text_field :venue_id %>
