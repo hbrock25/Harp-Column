@@ -1,18 +1,0 @@
-
-app/controllers/application_controller.rb,79
-class ApplicationController < ActionController::BaseApplicationController1,0
-
-app/helpers/application_helper.rb,47
-module ApplicationHelperApplicationHelper1,0
-
-app/controllers/application_controller.rb,79
-class ApplicationController < ActionController::BaseApplicationController1,0
-
-app/helpers/application_helper.rb,47
-module ApplicationHelperApplicationHelper1,0
-
-app/controllers/application_controller.rb,79
-class ApplicationController < ActionController::BaseApplicationController1,0
-
-app/helpers/application_helper.rb,47
-module ApplicationHelperApplicationHelper1,0
