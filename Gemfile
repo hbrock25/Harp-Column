@@ -8,8 +8,21 @@ gem 'rails', '3.0.7'
 gem 'sqlite3'
 gem 'devise'
 gem 'omniauth'
-gem 'acts_as_taggable_on_steroids'
-gem 'acts_as_commentable_with_threading '
+gem 'acts-as-taggable-on'
+gem 'acts_as_commentable_with_threading'
+gem 'acts_as_votable'
+gem 'activeadmin'
+gem 'gravatar_image_tag'
+
+group :test, :development do
+  gem "rspec-rails", "~> 2.6"
+  gem "cover_me"
+  gem "rspec"
+  gem "autotest"
+  gem 'machinist', '>= 2.0.0.beta2'
+  gem "faker"
+end
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
