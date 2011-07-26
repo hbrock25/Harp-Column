@@ -3,7 +3,7 @@ class AddProfileFieldsToUser < ActiveRecord::Migration
     change_table :users do |t|
       t.string    :name
       t.string    :website
-      t.string    :private, :default => false
+      t.boolean   :private, :default => false
       t.boolean   :admin,   :default => false
     end
   end
