@@ -6,6 +6,10 @@ gem 'rails', '3.0.7'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'devise'
+gem 'omniauth'
+gem 'acts_as_taggable_on_steroids'
+gem 'acts_as_commentable_with_threading '
 
 # Use unicorn as the web server
 # gem 'unicorn'
