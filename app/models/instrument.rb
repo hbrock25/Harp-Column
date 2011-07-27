@@ -1,5 +1,7 @@
 class Instrument < ActiveRecord::Base
   rails_admin
+  acts_as_commentable
+
   belongs_to :manufacturer
   belongs_to :instrument_type
 

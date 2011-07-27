@@ -100,6 +100,9 @@ ActiveRecord::Schema.define(:version => 20110727203407) do
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories_on_item_and_table_and_month_and_year"
 
   create_table "sound_clips", :force => true do |t|
+    t.string   "caption"
+    t.integer  "soundable_id"
+    t.string   "soundable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "asset_file_name"
