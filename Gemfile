@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
+gem 'rails', '3.0.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -12,6 +12,8 @@ gem 'acts-as-taggable-on'
 gem 'acts_as_commentable_with_threading'
 gem 'acts_as_votable'
 gem 'gravatar_image_tag'
+gem 'inherited_resources'
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.6"
