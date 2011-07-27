@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   rails_admin
 
   has_and_belongs_to_many :instruments
+  has_many  :pictures, :as => :imageable
 
   def gravatar size = 64
     gravatar_image_tag(email.downcase, :alt => name.titleize, :gravatar => {:default => :monsterid })

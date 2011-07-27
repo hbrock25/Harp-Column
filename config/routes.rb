@@ -7,7 +7,6 @@ Harpcolumn::Application.routes.draw do
   resources :users
   resources :addresses
   resources :instruments
-  resources :assets
   resources :manufacturers
 
   root :to => "users#show"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110727191151) do
+ActiveRecord::Schema.define(:version => 20110727203407) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -19,14 +19,6 @@ ActiveRecord::Schema.define(:version => 20110727191151) do
     t.string   "region"
     t.string   "country"
     t.string   "postal_code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "assets", :force => true do |t|
-    t.string   "name"
-    t.string   "asset_type"
-    t.string   "asset_path"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -82,6 +74,18 @@ ActiveRecord::Schema.define(:version => 20110727191151) do
     t.datetime "updated_at"
   end
 
+  create_table "pictures", :force => true do |t|
+    t.string   "caption"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.integer  "asset_file_size"
+    t.datetime "aasset_updated_at"
+  end
+
   create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"
     t.string   "username"
@@ -94,6 +98,15 @@ ActiveRecord::Schema.define(:version => 20110727191151) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories_on_item_and_table_and_month_and_year"
+
+  create_table "sound_clips", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.integer  "asset_file_size"
+    t.datetime "aasset_updated_at"
+  end
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
