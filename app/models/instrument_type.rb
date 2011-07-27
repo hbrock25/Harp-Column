@@ -1,4 +1,4 @@
-class Manufacturer < ActiveRecord::Base
+class InstrumentType < ActiveRecord::Base
   rails_admin
   has_many :instruments
 end

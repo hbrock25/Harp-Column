@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110727164528) do
+ActiveRecord::Schema.define(:version => 20110727191151) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(:version => 20110727164528) do
     t.string   "region"
     t.string   "country"
     t.string   "postal_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "assets", :force => true do |t|
+    t.string   "name"
+    t.string   "asset_type"
+    t.string   "asset_path"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -39,6 +47,40 @@ ActiveRecord::Schema.define(:version => 20110727164528) do
 
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "instrument_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "instruments", :force => true do |t|
+    t.string   "model"
+    t.integer  "manufacturer_id"
+    t.integer  "instrument_type_id"
+    t.date     "purchase_date"
+    t.string   "color"
+    t.string   "serial"
+    t.string   "owner"
+    t.string   "prev_owner"
+    t.text     "description"
+    t.string   "finish"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "instruments_users", :id => false, :force => true do |t|
+    t.integer "instrument_id"
+    t.integer "user_id"
+  end
+
+  add_index "instruments_users", ["instrument_id", "user_id"], :name => "index_instruments_users_on_instrument_id_and_user_id", :unique => true
+
+  create_table "manufacturers", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"

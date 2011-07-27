@@ -1,15 +1,21 @@
 Harpcolumn::Application.routes.draw do
 
-  resources :instrument_types
-
+<<<<<<< HEAD
   resources :venues
   devise_for :users
   resources :users
   resources :addresses
-  resources :instruments
-  resources :assets
-  resources :manufacturers
+
 
   root :to => "users#show"
+=======
+  resources :instruments
+
+  resources :assets
+
+  resources :manufacturers
+
+  devise_for :users, :path => "users", :path_names => {:registration => "register"}
+>>>>>>> 6b82c9baccef7cf1fd182a05229e1383ab6d003d
 
 end
