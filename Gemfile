@@ -13,6 +13,7 @@ gem 'acts_as_commentable_with_threading'
 gem 'acts_as_votable'
 gem 'gravatar_image_tag'
 gem 'inherited_resources'
+gem 'rails3-generators'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 group :test, :development do
