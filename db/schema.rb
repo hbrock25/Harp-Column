@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110727203407) do
+ActiveRecord::Schema.define(:version => 20110728002158) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -61,6 +61,13 @@ ActiveRecord::Schema.define(:version => 20110727203407) do
     t.datetime "updated_at"
   end
 
+  create_table "instruments_performances", :id => false, :force => true do |t|
+    t.integer "instrument_id"
+    t.integer "performance_id"
+  end
+
+  add_index "instruments_performances", ["instrument_id", "performance_id"], :name => "inst_perf", :unique => true
+
   create_table "instruments_users", :id => false, :force => true do |t|
     t.integer "instrument_id"
     t.integer "user_id"
@@ -74,6 +81,20 @@ ActiveRecord::Schema.define(:version => 20110727203407) do
     t.datetime "updated_at"
   end
 
+  create_table "performances", :force => true do |t|
+    t.datetime "date"
+    t.integer  "venue_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "performances_users", :id => false, :force => true do |t|
+    t.integer "performance_id"
+    t.integer "user_id"
+  end
+
+  add_index "performances_users", ["performance_id", "user_id"], :name => "index_performances_users_on_performance_id_and_user_id", :unique => true
+
   create_table "pictures", :force => true do |t|
     t.string   "caption"
     t.integer  "imageable_id"
@@ -83,7 +104,7 @@ ActiveRecord::Schema.define(:version => 20110727203407) do
     t.string   "asset_file_name"
     t.string   "asset_content_type"
     t.integer  "asset_file_size"
-    t.datetime "aasset_updated_at"
+    t.datetime "asset_updated_at"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -108,7 +129,7 @@ ActiveRecord::Schema.define(:version => 20110727203407) do
     t.string   "asset_file_name"
     t.string   "asset_content_type"
     t.integer  "asset_file_size"
-    t.datetime "aasset_updated_at"
+    t.datetime "asset_updated_at"
   end
 
   create_table "taggings", :force => true do |t|

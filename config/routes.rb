@@ -1,5 +1,7 @@
 Harpcolumn::Application.routes.draw do
 
+  resources :performances
+
   resources :instrument_types
 
   resources :venues

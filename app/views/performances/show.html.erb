@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @performance.date %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @performance.user_id %>
+</p>
+
+<p>
+  <b>Venue:</b>
+  <%= @performance.venue_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_performance_path(@performance) %> |
+<%= link_to 'Back', performances_path %>
