@@ -6,13 +6,50 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-u = User.create! :name => "Harp Admin",
-                :email => "harp@johnmetta.com",
-                :password => "yadayada",
-                :password_confirmation => "yadayada",
-                :admin => true
+User.create!([{
+    :name => "John Metta",
+    :email => "mail@johnmetta.com",
+    :password => "yadayada",
+    :password_confirmation => "yadayada",
+    :admin => true
+  },{
+    :name => "Seth MacPherson",
+    :email => "seth.macpherson@gmail.com",
+    :password => "change$me",
+    :password_confirmation => "change$me",
+    :admin => true
+  }
+}])
+User.all.each do | u |
+  u.confirm!
+end
 
-u.confirm!
+
+Address.create!([{
+  :line1         => "1906 Kauffman Ave"
+  :line2         => ""
+  :city          => "Seattle"
+  :region        => "WA"
+  :country_code  => "US"
+  :postal_code   => "98201"
+}])
+# 
+# Venue.create!([{
+#   
+# }])
+# 
+# 
+# 
+# Performance.create!([{
+#   :date          => DateTime.now
+#   :notes         => "Celebrating 200 years of harp magic"
+#   :venue_id      => Venue.first
+# }])
+# 
+# Performance.all.each do | p |
+#   p.save!
+# end
+
 
 InstrumentType.create([{ :name => 'Harp'}, { :name => 'Guitar'}, { :name => "Flute"}])
 Manufacturer.create :name => "Gibson"

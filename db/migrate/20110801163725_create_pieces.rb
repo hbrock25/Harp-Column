@@ -5,9 +5,7 @@ class CreatePieces < ActiveRecord::Migration
       t.integer :submitted_user_id
       t.date :date_composed
       t.string :description
-      t.text :comments
       t.integer :difficulty_id
-      t.integer :difficulty_rating
 
       t.timestamps
     end

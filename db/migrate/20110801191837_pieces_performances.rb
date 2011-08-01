@@ -5,7 +5,7 @@ class PiecesPerformances < ActiveRecord::Migration
       t.integer :performance_id
     end
 
-    add_index :pieces_performances, [:instrument_id, :performance_id], :unique => true, :name => :inst_perf
+    add_index :pieces_performances, [:piece_id, :performance_id], :unique => true
   end
 
   def self.down

@@ -1,5 +1,7 @@
 Harpcolumn::Application.routes.draw do
 
+  resources :difficulties
+
   resources :performances
 
   resources :composition_dates
@@ -15,6 +17,6 @@ Harpcolumn::Application.routes.draw do
   resources :instruments
   resources :manufacturers
 
-  root :to => "users#show"
+  root :to => "home#index"
 
 end
