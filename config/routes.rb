@@ -1,5 +1,9 @@
 Harpcolumn::Application.routes.draw do
 
+  resources :composition_dates
+
+  resources :pieces
+
   resources :instrument_types
 
   resources :venues

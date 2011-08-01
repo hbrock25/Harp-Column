@@ -1,0 +1,45 @@
+<%= form_for(@piece) do |f| %>
+  <% if @piece.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@piece.errors.count, "error") %> prohibited this piece from being saved:</h2>
+
+      <ul>
+      <% @piece.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :composer_id %><br />
+    <%= f.text_field :composer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :date_composed %><br />
+    <%= f.date_select :date_composed %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br />
+    <%= f.text_area :comments %>
+  </div>
+  <div class="field">
+    <%= f.label :difficulty_id %><br />
+    <%= f.text_field :difficulty_id %>
+  </div>
+  <div class="field">
+    <%= f.label :difficulty_rating %><br />
+    <%= f.text_field :difficulty_rating %>
+  </div>
+  <div class="field">
+    <%= f.label :submitted_user_id %><br />
+    <%= f.text_field :submitted_user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

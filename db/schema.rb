@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110727203407) do
+ActiveRecord::Schema.define(:version => 20110801164654) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -39,6 +39,12 @@ ActiveRecord::Schema.define(:version => 20110727203407) do
 
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "composition_dates", :force => true do |t|
+    t.date     "entry"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "instrument_types", :force => true do |t|
     t.string   "name"
@@ -84,6 +90,18 @@ ActiveRecord::Schema.define(:version => 20110727203407) do
     t.string   "asset_content_type"
     t.integer  "asset_file_size"
     t.datetime "asset_updated_at"
+  end
+
+  create_table "pieces", :force => true do |t|
+    t.integer  "composer_id"
+    t.integer  "submitted_user_id"
+    t.date     "date_composed"
+    t.string   "description"
+    t.text     "comments"
+    t.integer  "difficulty_id"
+    t.integer  "difficulty_rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
