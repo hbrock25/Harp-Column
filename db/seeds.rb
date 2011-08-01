@@ -18,7 +18,11 @@ User.create!([{
     :password => "change$me",
     :password_confirmation => "change$me",
     :admin => true
-  }
+  },{
+    :name => "Joe Schmoe",
+    :email => "joe@live.com",
+    :password => "joesucks",
+    :password_confirmation => "joesucks"
 }])
 User.all.each do | u |
   u.confirm!
@@ -26,29 +30,44 @@ end
 
 
 Address.create!([{
-  :line1         => "1906 Kauffman Ave"
-  :line2         => ""
-  :city          => "Seattle"
-  :region        => "WA"
-  :country_code  => "US"
-  :postal_code   => "98201"
+  :line1         =>  "1000 Mariner Way",
+  :line2         =>  "",
+  :city          =>  "Seattle",
+  :region        =>  "WA",
+  :country_code  =>  "US",
+  :postal_code   =>  "98201"
+},{
+  :line1         => "822 June ST",
+  :line2         => "",
+  :city          => "Hood River",
+  :region        => "OR",
+  :country_code  => "US",
+  :postal_code   => "97031"
 }])
-# 
-# Venue.create!([{
-#   
-# }])
-# 
-# 
-# 
-# Performance.create!([{
-#   :date          => DateTime.now
-#   :notes         => "Celebrating 200 years of harp magic"
-#   :venue_id      => Venue.first
-# }])
-# 
-# Performance.all.each do | p |
-#   p.save!
-# end
+
+Address.all.each do | a |
+  a.save!
+end
+
+Venue.create!([{
+  :name => "Safeco Field",
+  :address_id => Address.first.id
+}])
+
+Venue.all.each do | v |
+  v.save!
+end
+
+Performance.create!([{
+  :date          => DateTime.now,
+  :notes         => "Celebrating 200 years of harp magic",
+  :venue_id      => Venue.first.id,
+  :user_id       => User.last.id
+}])
+
+Performance.all.each do | p |
+  p.save!
+end
 
 
 InstrumentType.create([{ :name => 'Harp'}, { :name => 'Guitar'}, { :name => "Flute"}])
