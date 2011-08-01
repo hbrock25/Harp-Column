@@ -4,6 +4,7 @@ class CreatePerformances < ActiveRecord::Migration
       t.datetime  :date
       t.text      :notes
       t.integer   :venue_id
+      t.integer   :user_id
 
       t.timestamps
     end
