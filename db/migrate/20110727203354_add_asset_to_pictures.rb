@@ -11,5 +11,5 @@ class AddAssetToPictures < ActiveRecord::Migration
     remove_column :pictures, :asset_content_type
     remove_column :pictures, :asset_file_size
     remove_column :pictures, :asset_updated_at
-    end
+  end
 end

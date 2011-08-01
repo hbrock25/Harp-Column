@@ -16,6 +16,8 @@ doc/app
 doc/*
 .yardoc
 .yardopts
+*.orig
+db/schema.rb
 
 # Public Uploads
 public/system/*

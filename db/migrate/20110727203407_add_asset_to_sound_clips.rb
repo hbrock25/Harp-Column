@@ -11,5 +11,5 @@ class AddAssetToSoundClips < ActiveRecord::Migration
     remove_column :sound_clips, :asset_content_type
     remove_column :sound_clips, :asset_file_size
     remove_column :sound_clips, :asset_updated_at
-    end
+  end
 end
