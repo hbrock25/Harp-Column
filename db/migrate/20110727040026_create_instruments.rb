@@ -7,7 +7,7 @@ class CreateInstruments < ActiveRecord::Migration
       t.date :purchase_date
       t.string :color
       t.string :serial
-      t.string :owner
+      t.integer :user_id
       t.string :prev_owner
       t.text :description
       t.string :finish
