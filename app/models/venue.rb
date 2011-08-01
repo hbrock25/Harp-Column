@@ -11,7 +11,8 @@ class Venue < ActiveRecord::Base
   has_many  :performances
   has_many  :pictures, :as => :imageable
   has_many  :sound_clips, :as => :soundable
-  
+
+  validates_presence_of :name, :address_id
   # class methods
 
   # instance methods

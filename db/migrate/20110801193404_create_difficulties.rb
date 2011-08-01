@@ -1,7 +1,7 @@
 class CreateDifficulties < ActiveRecord::Migration
   def self.up
     create_table :difficulties do |t|
-      t.string :label
+      t.string :name
 
       t.timestamps
     end

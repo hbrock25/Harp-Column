@@ -75,6 +75,5 @@ Manufacturer.create :name => "Gibson"
 
 Instrument.create :manufacturer_id => Manufacturer.first.id,
                   :instrument_type_id => InstrumentType.first.id,
-                  :model => "Broken"
-
-User.first.instruments << Instrument.first
+                  :model => "Broken",
+                  :user_id => User.last.id
