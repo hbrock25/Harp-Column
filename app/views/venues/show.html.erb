@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<div style="float:left">
+    <%= link_to(image_tag(@venue.pictures.first.asset.url(:medium)), @venue.pictures.first.asset.url) if not @venue.pictures.first.nil? %>
+</div>
 <p>
   <b>Name:</b>
   <%= @venue.name %>
@@ -9,7 +11,6 @@
   <b>Address:</b>
   <%= @venue.address_id %>
 </p>
-
 
 <%= link_to 'Edit', edit_venue_path(@venue) %> |
 <%= link_to 'Back', venues_path %>
