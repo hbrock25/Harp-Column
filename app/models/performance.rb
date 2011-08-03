@@ -9,6 +9,10 @@ class Performance < ActiveRecord::Base
   belongs_to  :user
   belongs_to  :venue
 
-  validates_presence_of :venue, :user
+  validates_presence_of :venue, :user, :date
+
+  def friendly_name
+    [user.slug.name,venue.slug.name,date.("%m/%d/%Y")].join("-") 
+  end
 
 end
