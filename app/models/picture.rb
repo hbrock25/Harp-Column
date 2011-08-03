@@ -1,4 +1,5 @@
 class Picture < ActiveRecord::Base
+  rails_admin
   acts_as_commentable
 
   belongs_to :imageable, :polymorphic => true
