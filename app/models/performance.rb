@@ -8,11 +8,12 @@ class Performance < ActiveRecord::Base
   has_many  :sound_clips, :as => :soundable
   belongs_to  :user
   belongs_to  :venue
+  has_friendly_id :friendly_name
 
   validates_presence_of :venue, :user, :date
 
   def friendly_name
-    [user.slug.name,venue.slug.name,date.("%m/%d/%Y")].join("-") 
+    [user.slug.name,venue.slug.name,date("%m%d%Y")].join("-")
   end
 
 end
