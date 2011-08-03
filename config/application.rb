@@ -33,6 +33,11 @@ module Harpcolumn
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
 
+    # Adding Machinist to generators, a la :http://rubydoc.info/github/notahat/machinist/f52fb8/frames
+    # config.generators do |g|
+    #   g.fixture_replacement :machinist
+    # end
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
