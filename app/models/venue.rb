@@ -5,6 +5,8 @@ class Venue < ActiveRecord::Base
   # method area
   rails_admin
   acts_as_commentable
+  acts_as_taggable_on :stage
+  acts_as_taggable
 
   # has_and_belongs_to_many :instruments
   # has_and_belongs_to_many :musicians, :class_name => "User"
