@@ -1,6 +1,7 @@
 class CreatePieces < ActiveRecord::Migration
   def self.up
     create_table :pieces do |t|
+      t.string  :title
       t.integer :composer_id
       t.integer :user_id
       t.date    :date

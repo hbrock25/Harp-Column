@@ -6,8 +6,6 @@ Harpcolumn::Application.routes.draw do
 
   resources :pieces
 
-  resources :instrument_types
-
   resources :venues
   devise_for :users
   resources :users

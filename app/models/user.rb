@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   rails_admin
+  has_friendly_id :name, :use_slug => true
     # Include default devise modules. Others available are:
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable,

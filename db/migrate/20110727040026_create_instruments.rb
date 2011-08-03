@@ -3,7 +3,6 @@ class CreateInstruments < ActiveRecord::Migration
     create_table :instruments do |t|
       t.string :model
       t.integer :manufacturer_id
-      t.integer :instrument_type_id
       t.date :purchase_date
       t.string :color
       t.string :serial

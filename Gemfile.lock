@@ -1,6 +1,14 @@
 GIT
+  remote: git://github.com/norman/friendly_id.git
+  revision: d76df0bd40d82f010525fbff794baf857bb647a3
+  specs:
+    friendly_id (3.3.0.rc2)
+      babosa (~> 0.3.0)
+
+GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: ef02329d8c4263d55b2c958dba498dda803fd18b
+  revision: 536783bfa82dfd1c7e6f9660068cbeeb45bb82f7
+  branch: rails-3.0
   specs:
     rails_admin (0.0.1)
       builder (~> 2.1.0)
@@ -50,6 +58,7 @@ GEM
     arel (2.0.10)
     autotest (4.4.6)
       ZenTest (>= 4.4.1)
+    babosa (0.3.5)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
     cocaine (0.1.0)
@@ -74,7 +83,7 @@ GEM
     fastercsv (1.5.4)
     gravatar_image_tag (1.0.0)
     haml (3.1.2)
-    has_scope (0.5.0)
+    has_scope (0.5.1)
     hashie (1.1.0)
     i18n (0.5.0)
     inherited_resources (1.2.2)
@@ -206,6 +215,7 @@ DEPENDENCIES
   cover_me
   devise
   faker
+  friendly_id (~> 3.3.0.rc2)!
   gravatar_image_tag
   inherited_resources
   machinist (>= 2.0.0.beta2)
