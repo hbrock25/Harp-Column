@@ -7,7 +7,7 @@ class Piece < ActiveRecord::Base
   has_friendly_id :title, :use_slug => true
   # we needed to create the join table for pieces to instruments for this to work because it's a "has_and_belongs_to_many"
   has_and_belongs_to_many :performances
-  has_many  :pictures, :as    => :imageable
+  has_many  :pictures,    :as    => :imageable
   has_many  :sound_clips, :as => :soundable
   belongs_to :difficulty
 
@@ -15,11 +15,10 @@ class Piece < ActiveRecord::Base
 
   def register_vote
     # TODO: catch vote and adjust difficulty
-    # we need a get_vote_threshold method to return the current threshold 
   end
   
   def get_vote_threshold
-    5
+    5 # TODO: something arbitrary until we know we're going to use it.
   end
   
 end

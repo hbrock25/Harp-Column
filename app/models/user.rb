@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   :recoverable, :rememberable, :trackable, :validatable,
   :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable, :omniauthable
 
+  has_attached_file :profile_pic, :styles => { :large => "124x124>", :medium => "64x64>", :thumb => "32x32>" }
+
     # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :admin
   validates_presence_of :name, :email
