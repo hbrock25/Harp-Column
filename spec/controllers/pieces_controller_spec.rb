@@ -24,7 +24,7 @@ describe PiecesController do
   # Piece. As you add validations to Piece, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    { :title => "test", :composer_id => 1, :user_id => 1, :difficulty_id => 1}
   end
 
   describe "GET index" do

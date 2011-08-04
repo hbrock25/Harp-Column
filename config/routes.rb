@@ -5,7 +5,8 @@ Harpcolumn::Application.routes.draw do
   resources :performances
 
   resources :pieces
-
+  resources :pictures
+  resources :sound_clips
   resources :venues
   devise_for :users
   resources :users

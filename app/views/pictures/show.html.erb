@@ -1,0 +1,10 @@
+<div style="float:left">
+ <%= image_tag @picture.asset.url(:medium) %>
+</div>
+
+Users
+<ul>
+  <%= @picture.tag_list.each do |u| %>
+    <li><%= link_to User.find(u).name, User.find(u) %> </li>
+    <% end %>
+</ul>
