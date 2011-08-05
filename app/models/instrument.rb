@@ -9,5 +9,5 @@ class Instrument < ActiveRecord::Base
   has_many  :pictures, :as    => :imageable
   has_many  :sound_clips, :as => :soundable
 
-  validates_presence_of  :model, :manufacturer_id, :user_id
+  validates_presence_of  :model, :manufacturer, :user
 end

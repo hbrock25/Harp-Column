@@ -23,23 +23,24 @@ describe PiecesController do
   # This should return the minimal set of attributes required to create a valid
   # Piece. As you add validations to Piece, be sure to
   # update the return value of this method accordingly.
-  def valid_attributes
-    { :title => "test", :composer_id => 1, :user_id => 1, :difficulty_id => 1}
+
+  before :each do
+    @piece = FactoryGirl.create(:piece)
   end
 
   describe "GET index" do
     it "assigns all pieces as @pieces" do
-      piece = Piece.create! valid_attributes
+       
       get :index
-      assigns(:pieces).should eq([piece])
+      assigns(:pieces).should eq([@piece])
     end
   end
 
   describe "GET show" do
     it "assigns the requested piece as @piece" do
-      piece = Piece.create! valid_attributes
-      get :show, :id => piece.id.to_s
-      assigns(:piece).should eq(piece)
+       
+      get :show, :id => @piece.id.to_s
+      assigns(:piece).should eq(@piece)
     end
   end
 
@@ -52,9 +53,9 @@ describe PiecesController do
 
   describe "GET edit" do
     it "assigns the requested piece as @piece" do
-      piece = Piece.create! valid_attributes
-      get :edit, :id => piece.id.to_s
-      assigns(:piece).should eq(piece)
+       
+      get :edit, :id => @piece.id.to_s
+      assigns(:piece).should eq(@piece)
     end
   end
 
@@ -98,42 +99,42 @@ describe PiecesController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested piece" do
-        piece = Piece.create! valid_attributes
+         
         # Assuming there are no other pieces in the database, this
         # specifies that the Piece created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Piece.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => piece.id, :piece => {'these' => 'params'}
+        put :update, :id => @piece.id, :piece => {'these' => 'params'}
       end
 
       it "assigns the requested piece as @piece" do
-        piece = Piece.create! valid_attributes
-        put :update, :id => piece.id, :piece => valid_attributes
-        assigns(:piece).should eq(piece)
+         
+        put :update, :id => @piece.id, :piece => valid_attributes
+        assigns(:piece).should eq(@piece)
       end
 
       it "redirects to the piece" do
-        piece = Piece.create! valid_attributes
-        put :update, :id => piece.id, :piece => valid_attributes
-        response.should redirect_to(piece)
+         
+        put :update, :id => @piece.id, :piece => valid_attributes
+        response.should redirect_to(@piece)
       end
     end
 
     describe "with invalid params" do
       it "assigns the piece as @piece" do
-        piece = Piece.create! valid_attributes
+         
         # Trigger the behavior that occurs when invalid params are submitted
         Piece.any_instance.stub(:save).and_return(false)
-        put :update, :id => piece.id.to_s, :piece => {}
-        assigns(:piece).should eq(piece)
+        put :update, :id => @piece.id.to_s, :piece => {}
+        assigns(:piece).should eq(@piece)
       end
 
       it "re-renders the 'edit' template" do
-        piece = Piece.create! valid_attributes
+         
         # Trigger the behavior that occurs when invalid params are submitted
         Piece.any_instance.stub(:save).and_return(false)
-        put :update, :id => piece.id.to_s, :piece => {}
+        put :update, :id => @piece.id.to_s, :piece => {}
         response.should render_template("edit")
       end
     end
@@ -141,15 +142,15 @@ describe PiecesController do
 
   describe "DELETE destroy" do
     it "destroys the requested piece" do
-      piece = Piece.create! valid_attributes
+       
       expect {
-        delete :destroy, :id => piece.id.to_s
+        delete :destroy, :id => @piece.id.to_s
       }.to change(Piece, :count).by(-1)
     end
 
     it "redirects to the pieces list" do
-      piece = Piece.create! valid_attributes
-      delete :destroy, :id => piece.id.to_s
+       
+      delete :destroy, :id => @piece.id.to_s
       response.should redirect_to(pieces_url)
     end
   end

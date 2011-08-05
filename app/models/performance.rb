@@ -13,7 +13,7 @@ class Performance < ActiveRecord::Base
   validates_presence_of :venue, :user, :date
 
   def friendly_name
-    [user.slug.name,venue.slug.name,date("%m%d%Y")].join("-")
+    [self.user.slug.name,self.venue.slug.name,self.date("%m%d%Y")].join("-")
   end
 
 end

@@ -24,7 +24,8 @@ describe VenuesController do
   # Venue. As you add validations to Venue, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {:name => "test venue",
+     :address_id => 1}
   end
 
   describe "GET index" do

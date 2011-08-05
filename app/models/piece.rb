@@ -11,7 +11,8 @@ class Piece < ActiveRecord::Base
   has_many  :sound_clips, :as => :soundable
   belongs_to :difficulty
 
-  validates_presence_of :title, :composer, :user, :difficulty
+  # TODO: Add composer to this list
+  validates_presence_of :title, :user, :difficulty
 
   def register_vote
     # TODO: catch vote and adjust difficulty
