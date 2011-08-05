@@ -7,7 +7,7 @@ gem 'rails', '3.0.9'
 
 gem 'sqlite3'
 gem 'devise'
-gem 'omniauth'
+gem 'omniauth', '>= 0.2.6'
 gem 'acts-as-taggable-on'
 gem 'acts_as_commentable_with_threading'
 gem 'acts_as_votable'
@@ -21,6 +21,7 @@ gem "friendly_id", "~> 3.3.0.rc2", :git => 'git://github.com/norman/friendly_id.
 group :test, :development do
   gem "cover_me"
   gem "rspec"
+  gem "cucumber-rails"
   gem "rspec-rails", "~> 2.6"
   gem "autotest"
   gem "factory_girl_rails", "~> 1.1"
