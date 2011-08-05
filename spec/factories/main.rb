@@ -29,7 +29,7 @@ FactoryGirl.define do
     city          'Hood River'
     region        'Oregon'
     country_code  'US'
-    postal_code   97031
+    postal_code   '97031'
   end
 
   factory :venue do |v|

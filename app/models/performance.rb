@@ -11,6 +11,7 @@ class Performance < ActiveRecord::Base
   has_friendly_id :friendly_name
 
   validates_presence_of :venue, :user, :date
+  accepts_nested_attributes_for :pictures, :sound_clips, :venue
 
   def friendly_name
     [self.user.slug.name,self.venue.slug.name,self.date("%m%d%Y")].join("-")

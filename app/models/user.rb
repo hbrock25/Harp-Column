@@ -14,8 +14,10 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :instruments
   has_and_belongs_to_many :performances
-  has_many  :pictures, :as => :imageable
+  has_many  :picture_links, :as => :imageable
   has_many  :sound_clips, :as => :soundable
+
+  accepts_nested_attributes_for :instruments
 
   def gravatar size = 64
     gravatar_image_tag(email.downcase, :alt => name.titleize, :gravatar => {:default => :monsterid })
