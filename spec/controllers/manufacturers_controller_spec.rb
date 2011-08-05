@@ -24,7 +24,7 @@ describe ManufacturersController do
   # Manufacturer. As you add validations to Manufacturer, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    { :name => "test"}
   end
 
   describe "GET index" do

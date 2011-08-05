@@ -8,13 +8,13 @@ require 'machinist/active_record'
 #     body  { "Lorem ipsum..." }
 #   end
 
-# User.blueprint do
-#   name { "Clark Kent" }
-#   email  { "clark@kent.com" }
-#   password { "superman!" }
-#   password_confirmation { "superman!" }
-# end
-# 
+User.blueprint do
+  name { "Clark Kent" }
+  email  { "clark@kent.com" }
+  password { "superman!" }
+  password_confirmation { "superman!" }
+end
+
 
 Address.blueprint do
   line1         {"1000 Main ST"}

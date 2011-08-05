@@ -23,23 +23,21 @@ describe PerformancesController do
   # This should return the minimal set of attributes required to create a valid
   # Performance. As you add validations to Performance, be sure to
   # update the return value of this method accordingly.
-  def valid_attributes
-    {}
+  before :each do
+    @performance = FactoryGirl.build(:performance)
   end
 
   describe "GET index" do
     it "assigns all performances as @performances" do
-      performance = Performance.create! valid_attributes
       get :index
-      assigns(:performances).should eq([performance])
+      assigns(:performances).should eq([@performance])
     end
   end
 
   describe "GET show" do
     it "assigns the requested performance as @performance" do
-      performance = Performance.create! valid_attributes
-      get :show, :id => performance.id.to_s
-      assigns(:performance).should eq(performance)
+      get :show, :id => @performance.id.to_s
+      assigns(:performance).should eq(@performance)
     end
   end
 
@@ -52,9 +50,8 @@ describe PerformancesController do
 
   describe "GET edit" do
     it "assigns the requested performance as @performance" do
-      performance = Performance.create! valid_attributes
-      get :edit, :id => performance.id.to_s
-      assigns(:performance).should eq(performance)
+      get :edit, :id => @performance.id.to_s
+      assigns(:performance).should eq(@performance)
     end
   end
 
@@ -62,18 +59,15 @@ describe PerformancesController do
     describe "with valid params" do
       it "creates a new Performance" do
         expect {
-          post :create, :performance => valid_attributes
         }.to change(Performance, :count).by(1)
       end
 
       it "assigns a newly created performance as @performance" do
-        post :create, :performance => valid_attributes
         assigns(:performance).should be_a(Performance)
         assigns(:performance).should be_persisted
       end
 
       it "redirects to the created performance" do
-        post :create, :performance => valid_attributes
         response.should redirect_to(Performance.last)
       end
     end
@@ -98,42 +92,37 @@ describe PerformancesController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested performance" do
-        performance = Performance.create! valid_attributes
         # Assuming there are no other performances in the database, this
         # specifies that the Performance created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Performance.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => performance.id, :performance => {'these' => 'params'}
+        put :update, :id => @performance.id, :performance => {'these' => 'params'}
       end
 
       it "assigns the requested performance as @performance" do
-        performance = Performance.create! valid_attributes
-        put :update, :id => performance.id, :performance => valid_attributes
-        assigns(:performance).should eq(performance)
+        put :update, :id => @performance.id, :performance => @performance.attributes
+        assigns(:performance).should eq(@performance)
       end
 
       it "redirects to the performance" do
-        performance = Performance.create! valid_attributes
-        put :update, :id => performance.id, :performance => valid_attributes
-        response.should redirect_to(performance)
+        put :update, :id => @performance.id, :performance => @performance.attributes
+        response.should redirect_to(@performance)
       end
     end
 
     describe "with invalid params" do
       it "assigns the performance as @performance" do
-        performance = Performance.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Performance.any_instance.stub(:save).and_return(false)
-        put :update, :id => performance.id.to_s, :performance => {}
-        assigns(:performance).should eq(performance)
+        put :update, :id => @performance.id.to_s, :performance => {}
+        assigns(:performance).should eq(@performance)
       end
 
       it "re-renders the 'edit' template" do
-        performance = Performance.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Performance.any_instance.stub(:save).and_return(false)
-        put :update, :id => performance.id.to_s, :performance => {}
+        put :update, :id => @performance.id.to_s, :performance => {}
         response.should render_template("edit")
       end
     end
@@ -141,15 +130,13 @@ describe PerformancesController do
 
   describe "DELETE destroy" do
     it "destroys the requested performance" do
-      performance = Performance.create! valid_attributes
       expect {
-        delete :destroy, :id => performance.id.to_s
+        delete :destroy, :id => @performance.id.to_s
       }.to change(Performance, :count).by(-1)
     end
 
     it "redirects to the performances list" do
-      performance = Performance.create! valid_attributes
-      delete :destroy, :id => performance.id.to_s
+      delete :destroy, :id => @performance.id.to_s
       response.should redirect_to(performances_url)
     end
   end

@@ -23,23 +23,21 @@ describe InstrumentsController do
   # This should return the minimal set of attributes required to create a valid
   # Instrument. As you add validations to Instrument, be sure to
   # update the return value of this method accordingly.
-  def valid_attributes
-    {}
+  before :each do
+    @instrument = FactoryGirl.create(:instrument)
   end
 
   describe "GET index" do
     it "assigns all instruments as @instruments" do
-      instrument = Instrument.create! valid_attributes
       get :index
-      assigns(:instruments).should eq([instrument])
+      assigns(:instruments).should eq([@instrument])
     end
   end
 
   describe "GET show" do
     it "assigns the requested instrument as @instrument" do
-      instrument = Instrument.create! valid_attributes
-      get :show, :id => instrument.id.to_s
-      assigns(:instrument).should eq(instrument)
+      get :show, :id => @instrument.id.to_s
+      assigns(:instrument).should eq(@instrument)
     end
   end
 
@@ -52,9 +50,8 @@ describe InstrumentsController do
 
   describe "GET edit" do
     it "assigns the requested instrument as @instrument" do
-      instrument = Instrument.create! valid_attributes
-      get :edit, :id => instrument.id.to_s
-      assigns(:instrument).should eq(instrument)
+      get :edit, :id => @instrument.id.to_s
+      assigns(:instrument).should eq(@instrument)
     end
   end
 
@@ -62,18 +59,18 @@ describe InstrumentsController do
     describe "with valid params" do
       it "creates a new Instrument" do
         expect {
-          post :create, :instrument => valid_attributes
+          post :create, :instrument => FactoryGirl.attributes(:instrument)
         }.to change(Instrument, :count).by(1)
       end
 
       it "assigns a newly created instrument as @instrument" do
-        post :create, :instrument => valid_attributes
+        post :create, :instrument => FactoryGirl.attributes(:instrument)
         assigns(:instrument).should be_a(Instrument)
         assigns(:instrument).should be_persisted
       end
 
       it "redirects to the created instrument" do
-        post :create, :instrument => valid_attributes
+        post :create, :instrument => FactoryGirl.attributes(:instrument)
         response.should redirect_to(Instrument.last)
       end
     end
@@ -98,42 +95,37 @@ describe InstrumentsController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested instrument" do
-        instrument = Instrument.create! valid_attributes
         # Assuming there are no other instruments in the database, this
         # specifies that the Instrument created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Instrument.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => instrument.id, :instrument => {'these' => 'params'}
+        put :update, :id => @instrument.id, :instrument => {'these' => 'params'}
       end
 
       it "assigns the requested instrument as @instrument" do
-        instrument = Instrument.create! valid_attributes
-        put :update, :id => instrument.id, :instrument => valid_attributes
-        assigns(:instrument).should eq(instrument)
+        put :update, :id => instrument.id, :instrument => FactoryGirl.attributes(:instrument)
+        assigns(:instrument).should eq(@instrument)
       end
 
       it "redirects to the instrument" do
-        instrument = Instrument.create! valid_attributes
-        put :update, :id => instrument.id, :instrument => valid_attributes
-        response.should redirect_to(instrument)
+        put :update, :id => @instrument.id, :instrument => FactoryGirl.attributes(:instrument)
+        response.should redirect_to(@instrument)
       end
     end
 
     describe "with invalid params" do
       it "assigns the instrument as @instrument" do
-        instrument = Instrument.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Instrument.any_instance.stub(:save).and_return(false)
-        put :update, :id => instrument.id.to_s, :instrument => {}
-        assigns(:instrument).should eq(instrument)
+        put :update, :id => @instrument.id.to_s, :instrument => {}
+        assigns(:instrument).should eq(@instrument)
       end
 
       it "re-renders the 'edit' template" do
-        instrument = Instrument.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Instrument.any_instance.stub(:save).and_return(false)
-        put :update, :id => instrument.id.to_s, :instrument => {}
+        put :update, :id => @instrument.id.to_s, :instrument => {}
         response.should render_template("edit")
       end
     end
@@ -141,16 +133,14 @@ describe InstrumentsController do
 
   describe "DELETE destroy" do
     it "destroys the requested instrument" do
-      instrument = Instrument.create! valid_attributes
       expect {
-        delete :destroy, :id => instrument.id.to_s
+        delete :destroy, :id => @instrument.id.to_s
       }.to change(Instrument, :count).by(-1)
     end
 
     it "redirects to the instruments list" do
-      instrument = Instrument.create! valid_attributes
-      delete :destroy, :id => instrument.id.to_s
-      response.should redirect_to(instruments_url)
+      delete :destroy, :id => @instrument.id.to_s
+      response.should redirect_to(@instruments_url)
     end
   end
 

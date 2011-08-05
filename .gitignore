@@ -22,7 +22,7 @@ db/schema.rb
 # Public Uploads
 public/system/*
 public/themes/*
-
+public/assets/*
 # Public Cache
 public/javascripts/cache
 public/stylesheets/cache

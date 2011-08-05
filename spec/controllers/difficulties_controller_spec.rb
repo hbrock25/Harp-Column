@@ -24,7 +24,7 @@ describe DifficultiesController do
   # Difficulty. As you add validations to Difficulty, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {:name => "test"}
   end
 
   describe "GET index" do
@@ -82,14 +82,14 @@ describe DifficultiesController do
       it "assigns a newly created but unsaved difficulty as @difficulty" do
         # Trigger the behavior that occurs when invalid params are submitted
         Difficulty.any_instance.stub(:save).and_return(false)
-        post :create, :difficulty => {}
+        post :create, :difficulty => { :name => "test" }
         assigns(:difficulty).should be_a_new(Difficulty)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Difficulty.any_instance.stub(:save).and_return(false)
-        post :create, :difficulty => {}
+        post :create, :difficulty => {:name => "test"}
         response.should render_template("new")
       end
     end

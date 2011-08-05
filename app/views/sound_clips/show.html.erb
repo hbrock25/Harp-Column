@@ -1,0 +1,19 @@
+<p>
+ <%= link_to @sound_clip.caption, @sound_clip.asset.url %>
+</p>
+
+Users in this sound_clip
+<ul>
+  <% @sound_clip.user_list.each do |u| %>
+    <li><%= link_to User.find(u).name, User.find(u) %> (<%=link_to "delete", "/sound_clips/#{@sound_clip.id}/del_user/#{u}" %>)</li>
+  <% end %>
+</ul>
+Add user to sound_clip
+<ul>
+    <% User.all.each do |u| %>
+      <% if @sound_clip.user_list.include?(u.slug.name) %>
+      <% else %>
+        <li><%= link_to u.name, "/sound_clips/#{@sound_clip.id}/add_user/#{u.slug.name}" %></li>
+      <% end %>
+    <% end %>
+</ul>

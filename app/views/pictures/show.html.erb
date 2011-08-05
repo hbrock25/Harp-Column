@@ -1,0 +1,19 @@
+<div style="float:left">
+ <%= image_tag @picture.asset.url(:medium) %>
+</div>
+
+Users in this picture
+<ul>
+  <% @picture.user_list.each do |u| %>
+    <li><%= link_to User.find(u).name, User.find(u) %> (<%=link_to "delete", "/pictures/#{@picture.id}/del_user/#{u}" %>)</li>
+  <% end %>
+</ul>
+Add user to picture
+<ul>
+    <% User.all.each do |u| %>
+      <% if @picture.user_list.include?(u.slug.name) %>
+      <% else %>
+        <li><%= link_to u.name, "/pictures/#{@picture.id}/add_user/#{u.slug.name}" %></li>
+      <% end %>
+    <% end %>
+</ul>
