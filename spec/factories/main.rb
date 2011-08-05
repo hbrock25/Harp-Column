@@ -32,9 +32,9 @@ FactoryGirl.define do
     postal_code   97031
   end
 
-  factory :venue do
-    name      'test venue'
-    address
+  factory :venue do |v|
+    v.name      'test venue'
+    v.association :address
   end
 
   factory :performance do

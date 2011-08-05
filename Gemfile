@@ -19,10 +19,9 @@ gem 'paperclip'
 gem "friendly_id", "~> 3.3.0.rc2", :git => 'git://github.com/norman/friendly_id.git'
 
 group :test, :development do
-  gem "sham"
-  gem "rspec-rails", "~> 2.6"
   gem "cover_me"
   gem "rspec"
+  gem "rspec-rails", "~> 2.6"
   gem "autotest"
   gem "factory_girl_rails", "~> 1.1"
   gem "faker"

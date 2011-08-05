@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe Venue do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before :each do
+    @venue = FactoryGirl.create(:venue)
+  end
+
+  it "Should fucking work" do
+    @venue.should be_valid
+  end
 end
