@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :performances
   has_many  :picture_links, :as => :imageable
   has_many  :sound_clips, :as => :soundable
+  has_many  :notebooks
+  
+  accepts_nested_attributes_for :notebooks
 
   accepts_nested_attributes_for :instruments
 

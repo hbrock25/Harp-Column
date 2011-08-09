@@ -1,5 +1,7 @@
 Harpcolumn::Application.routes.draw do
 
+  resources :entries
+
   resources :notebooks
 
   resources :difficulties
