@@ -12,6 +12,7 @@ class Performance < ActiveRecord::Base
   
 
   validates_presence_of :venue, :user, :date
+  accepts_nested_attributes_for :pictures, :sound_clips, :venue
 
   def friendly_name
     "#{user.name} #{venue.name} #{date.strftime('%m%d%Y')}"

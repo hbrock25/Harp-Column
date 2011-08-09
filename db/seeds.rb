@@ -28,7 +28,6 @@ User.all.each do | u |
   u.confirm!
 end
 
-
 Address.create!([{
   :line1         =>  "1000 Mariner Way",
   :line2         =>  "",
@@ -74,3 +73,10 @@ Manufacturer.create :name => "Gibson"
 Instrument.create :manufacturer_id => Manufacturer.first.id,
                   :model => "Broken",
                   :user_id => User.last.id
+
+
+Picture.create :caption => "homer",
+               :asset => File.open("public/images/fail_homer.jpg")
+
+SoundClip.create :caption => "Hillsbrook Reels",
+                 :asset => File.open("public/assets/hillsbrook_reels.m4a")
