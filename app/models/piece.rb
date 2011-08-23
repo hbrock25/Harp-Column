@@ -8,6 +8,8 @@ class Piece < ActiveRecord::Base
 
   # we needed to create the join table for pieces to instruments for this to work because it's a "has_and_belongs_to_many"
   has_and_belongs_to_many :performances
+  has_many  :picture_links,   :as    => :imageable
+  has_many  :sound_clips,     :as => :soundable
   has_and_belongs_to_many :entries
   has_many    :pictures,    :as => :imageable
   has_many    :sound_clips, :as => :soundable
