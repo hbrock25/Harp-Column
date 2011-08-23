@@ -8,8 +8,8 @@ class Instrument < ActiveRecord::Base
   belongs_to :user
 
   has_and_belongs_to_many :players, :class_name => "User"
-  has_many  :pictures, :as    => :imageable
-  has_many  :sound_clips, :as => :soundable
+  has_many  :picture_links,   :as    => :imageable
+  has_many  :sound_clips,     :as => :soundable
 
   validates_presence_of   :guid
   validates_uniqueness_of :guid

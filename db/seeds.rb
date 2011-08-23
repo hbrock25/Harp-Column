@@ -6,6 +6,14 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
+Role.create(:name => "owner", :power => '1000')
+Role.create(:name => "admin", :power => '0100')
+Role.create(:name => "write", :power => '0010')
+Role.create(:name => "read",  :power => '0001')
+public = Group.create(:name => "public", :is_hidden => true)
+approved = Group.create(:name => "approved", :is_hidden => true)
+
+
 User.create!([{
     :name => "John Metta",
     :email => "mail@johnmetta.com",
@@ -44,29 +52,25 @@ Address.create!([{
   :postal_code   => "97031"
 }])
 
-Address.all.each do | a |
-  a.save!
-end
-
 Venue.create!([{
   :name => "Safeco Field",
   :address_id => Address.first.id
 }])
 
 Venue.all.each do | v |
+  v.groups << public
+  v.groups << approved
   v.save!
 end
 
-Performance.create!([{
+p = Performance.create!(
   :date          => DateTime.now,
   :notes         => "Celebrating 200 years of harp magic",
   :venue_id      => Venue.first.id,
   :user_id       => User.last.id
-}])
+)
 
-Performance.all.each do | p |
-  p.save!
-end
+p.groups << public
 
 Manufacturer.create :name => "Gibson"
 

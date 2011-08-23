@@ -1,5 +1,11 @@
 Harpcolumn::Application.routes.draw do
 
+  resources :memberships
+
+  resources :groups
+
+  resources :roles
+
   resources :difficulties
 
   resources :performances

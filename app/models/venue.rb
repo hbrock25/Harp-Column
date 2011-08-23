@@ -1,8 +1,4 @@
 class Venue < ActiveRecord::Base
-  # module
-  # include Randomizer, etc.
-  
-  # method area
   rails_admin
   acts_as_commentable
   acts_as_taggable_on :format
@@ -10,14 +6,17 @@ class Venue < ActiveRecord::Base
   has_friendly_id :name, :use_slug => true
 
   has_many  :performances
-  has_many  :pictures,        :as => :imageable
-  has_one   :official_photo,  :as => :imageable, :class_name => "Picture"
+  has_many  :picture_links,   :as => :imageable
+  has_one   :official_photo,  :as => :imageable, :class_name => "PictureLink"
   has_many  :sound_clips,     :as => :soundable
+  has_many  :groups,          :as => :groupable
   belongs_to  :address
 
   validates_presence_of :name, :address
-  # class methods
 
-  # instance methods
+  #TODO: this is going to need some optimization
+#  def pictures
+#    picture_links.all.map{|p| p.picture }
+#  end
 
 end
