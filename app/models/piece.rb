@@ -11,8 +11,6 @@ class Piece < ActiveRecord::Base
   has_many  :picture_links,   :as    => :imageable
   has_many  :sound_clips,     :as => :soundable
   has_and_belongs_to_many :entries
-  has_many    :pictures,    :as => :imageable
-  has_many    :sound_clips, :as => :soundable
   belongs_to  :difficulty
   belongs_to  :user
 

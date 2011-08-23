@@ -12,8 +12,6 @@ class Instrument < ActiveRecord::Base
   has_many  :sound_clips,     :as => :soundable
   has_and_belongs_to_many :entries
   has_and_belongs_to_many :performances
-  has_many  :pictures, :as    => :imageable
-  has_many  :sound_clips, :as => :soundable
 
   validates_presence_of   :guid
   validates_uniqueness_of :guid

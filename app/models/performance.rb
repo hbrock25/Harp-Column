@@ -8,8 +8,6 @@ class Performance < ActiveRecord::Base
   has_many  :sound_clips,     :as => :soundable
   has_many  :groups,          :as => :groupable
   has_and_belongs_to_many :instruments
-  has_many  :pictures, :as => :imageable
-  has_many  :sound_clips, :as => :soundable
   belongs_to  :user
   belongs_to  :venue
   has_friendly_id :friendly_name, :use_slug => true

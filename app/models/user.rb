@@ -8,24 +8,23 @@ class User < ActiveRecord::Base
 
   has_attached_file :profile_pic, :styles => { :large => "124x124>", :medium => "64x64>", :thumb => "32x32>" }
 
-    # Setup accessible (or protected) attributes for your model
+  # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :admin
-  validates_presence_of :name, :email
 
   has_and_belongs_to_many :instruments
   has_and_belongs_to_many :performances
-  has_many  :picture_links, :as => :imageable
-  has_many  :sound_clips, :as => :soundable
-  has_many  :notebooks
-  
-  accepts_nested_attributes_for :notebooks
-  has_many :memberships
+
+  has_many :notebooks
+  has_many :picture_links, :as => :imageable
+  has_many :sound_clips, :as => :soundable
   has_many :groups, :through => :memberships
-
+  has_many :memberships
+  
   accepts_nested_attributes_for :instruments
-  after_create :create_group
+  accepts_nested_attributes_for :notebooks
+  validates_presence_of :name, :email
 
-  accepts_nested_attributes_for :instruments, :groups
+  after_create :create_group
 
   # perform the 3 table join in a way that will
   # let us also call include and other filters.
