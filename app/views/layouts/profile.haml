@@ -1,0 +1,141 @@
+-# User Profile
+%section.profile.container_24
+  
+  -# Left Sidebar
+  #sidebar-left.grid_4
+    %img.photo.sidebar-item{:src => 'http://placehold.it/136x136&text=User Photo', :alt => 'Profile photo of John Smith'}
+
+    %nav.profile.sidebar-item
+      %ul
+        %li.selected
+          %a{:href => '#'} Kenneth's Column
+        %li
+          %a{:href => '#'} About Kenneth
+        %li
+          %a{:href => '#'} Media
+        %li
+          %a{:href => '#'} Events
+    
+    %section#sidebar-advert.ad.sidebar-item
+      %span.marker Advertisement
+      %img.constrain{:src => 'http://placehold.it/150x260&text=Sidebar+Ad', :alt => 'Sidebar Advertisement'}
+    
+    %a.sidebar-item.em{:href => '#'} Unfriend Kenneth
+
+  -# Primary Content Area
+  #primary.grid_12
+    
+    -# User Identity/hCard
+    %header#profile-header.vcard.grid_11.push_1
+      %h1.user-name.fn.n.text-extents
+        %a.url.link-hide{:href => 'http://musicstand.me/johnsmith/', :rel => 'friend co-worker'}
+          %span.given-name Kenneth 
+          %span.family-name Keiter
+      %span.adr
+        %span.country-name.icon-only.flag-us United States
+      %a#send-message.message-icon.em{:href => '#'} Send Message
+
+    -# Music Stand input area
+    %section#squawk-box.box
+      .content
+        %input.message{:type => 'text', :placeholder => 'Write on Kenneth Keiter\'s stand...'}
+        %input.post-message-btn{:type => 'submit', :value => 'Post'}
+
+    -# Activity Stream
+    %section.activity-stream.grid_11.push_1
+      
+      -# Example conversation
+      %ol.activity.conversation
+        %li.initiator
+          %img.profile-image{:src => 'http://placehold.it/46x46'}
+          .content
+            %p
+              %a{:rel => 'friend', :href => 'http://musicstand.me/hewbrocca'} Hugh Brock
+              \- Hey Ken, I heard you’re in Portland on the 21st playing your harp rendition 
+              of Michael Jackson’s hit “Smooth Criminal.” I’d love to see how it turned 
+              out, and I love angry harp pieces. You should let me know when you’re in 
+              town so I can check out your show!
+            %p And something else.. You're amazing.
+        %li.response
+          %img.profile-image{:src => 'http://placehold.it/46x46'}
+          .content
+            %p
+              %a{:rel => 'friend', :href => 'http://musicstand.me/kenkeiter'} Kenneth Keiter
+              \- Ah! Good to hear from you, Hugh. Yeah, I’ve got a lot of work-related angst 
+              lately that’s creeping into my choice of pieces. I’m playing at the Portland 
+              concert hall at 7:00 on the 21st.   
+        %li.input
+          %span.icon.icon-only.comment-lit Comment
+          %textarea.response.auto-expand{:type => 'text', :placeholder => 'Write a comment...', :rows => 1}
+    
+      -# Example notification group
+      %ol.activity.notification-group
+        %li.notification
+          %p
+            Kenneth replied to 
+            %a.primary{:href => '#'} Mozart Concerto Fingering
+            in the 
+            %a.primary{:href => '#'} forum.
+        %li.notification
+          %p
+            Kenneth replied to 
+            %a.primary{:href => '#'} Portland Harpist Meetup 
+            in the
+            %a.primary{:href => '#'} forum.
+        %li.notification
+          %p
+            Kenneth will be attending 
+            %a.primary{:href => '#'} Anger Therepy for Harpists
+            near
+            %a.primary{:href => '#'} Portland, OR.
+      
+      -# Example featured content
+      .activity.feature
+        %img.ident{:src => 'http://placehold.it/46x46'}
+        .content.constrain
+          Some content for the feature.
+
+  -# Right Sidebar
+  #sidebar-right.container.grid_7.push_1
+    
+    -# User Statistics
+    %section.container.grid_7.alpha.box
+      %dl#user-statistics.content
+        %ul
+          %li
+            %dt new posts
+            %dd 
+              %img{:src => '/images/stats-posts-icon.png', :alt => 'Posts'} 120
+          %li
+            %dt friends
+            %dd 
+              %img{:src => '/images/stats-friends-icon.png', :alt => 'Posts'} 320
+          %li
+            %dt community rank
+            %dd 
+              %img{:src => '/images/stats-rank-icon-4.png', :alt => '4 out of 5 stars'}
+    
+    -# User Pieces
+    %section.container.grid_7.alpha.box
+      %div.content
+        %header
+          %h2 Kenneth's Pieces
+        #user-pieces
+          -# Note: down-{x} classes indicate percent complete to nearest 10
+          %ul
+            %li.down-10
+              %a.piece-name.strong.primary{:href => '#'} CPE Bach Sonata
+            %li.down-30
+              %a.piece-name.strong.primary{:href => '#'} Mozart's Concerto
+        %footer.separated
+          .container{:style => 'text-align: right;'}
+            %a.primary{:href => ''} View All &raquo;
+    
+    -# User Equipment
+    %section.container.grid_7.alpha.box
+      %div.content
+        %header
+          %h2 Kenneth's Harps
+        %div
+          Something
+  

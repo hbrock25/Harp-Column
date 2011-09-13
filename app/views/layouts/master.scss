@@ -1,0 +1,498 @@
+$image-asset-url: '/images/';
+$bg-color-ultralight: #efefef;
+$bg-color-light: #ddd;
+$bg-color-flat: #fff;
+$primary-color: #D05D37;
+
+$link-color-active: #CC3300;
+
+$font-label-small: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+$color-label-small: #999;
+
+body{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
+
+.constrain{
+  overflow: hidden !important;
+}
+
+.debug{
+  background-color: #cfc !important;
+  border: 1px dotted green;
+}
+
+@mixin inner-shadow($h, $v, $blur, $color){
+  $spread: 0px; /* never used */
+  -webkit-box-shadow: inset $h $v $blur $spread $color;
+  -moz-box-shadow: inset $h $v $blur $spread $color;
+  box-shadow: inset $h $v $blur $spread $color;
+}
+
+@mixin rounded($tl, $tr, $bl, $br){
+  -moz-border-radius-topleft: $tl;
+  -moz-border-radius-topright: $tr;
+  -moz-border-radius-bottomright: $br;
+  -moz-border-radius-bottomleft: $bl;
+  -webkit-border-radius: $tl $tr $br $bl;
+  border-radius: $tl $tr $br $bl;
+}
+
+@mixin rounded-equal($radius){
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+.left{ float: left; }
+.right{ float: right; }
+
+.box{
+  @include rounded-equal(6px);
+  background-color: #efefef;
+  .content{
+    @include rounded-equal(3px);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin: 5px;
+    overflow: hidden;
+  }
+  header{
+    background-color: #E4F6FC;
+    border-bottom: 1px solid #ccc;
+    padding: 7px;
+  }
+  h2{
+    font-weight: bold;
+    color: #0066CC;
+    display: inline;
+  }
+  span.controls{
+    float: right;
+  }
+  footer.separated{
+    border-top: 1px solid #ccc;
+    padding: 4px;
+  }
+  footer.left{ text-align: left; }
+  footer.right{ text-align: right; }
+}
+
+.box + .box{
+  margin-top: 10px;
+}
+
+/* Icon Helpers *************************************************************/
+
+.icon-only{
+  text-indent: -9999px;
+  display: inline-block;
+}
+
+$countries: ('af', 'ax', 'al', 'dz', 'as', 'ad', 'ao', 'ai', 'aq', 
+'ag', 'ar', 'am', 'aw', 'au', 'at', 'az', 'bs', 'bh', 'bd', 'bb', 'by', 
+'be', 'bz', 'bj', 'bm', 'bt', 'bo', 'ba', 'bw', 'bv', 'br', 'io', 'bn', 
+'bg', 'bf', 'bi', 'kh', 'cm', 'ca', 'cv', 'ky', 'cf', 'td', 'cl', 'cn', 
+'cx', 'cc', 'co', 'km', 'cg', 'cd', 'ck', 'cr', 'ci', 'hr', 'cu', 'cy', 
+'cz', 'dk', 'dj', 'dm', 'do', 'ec', 'eg', 'sv', 'gq', 'er', 'ee', 'et', 
+'fk', 'fo', 'fj', 'fi', 'fr', 'gf', 'pf', 'tf', 'ga', 'gm', 'ge', 'de', 
+'gh', 'gi', 'gr', 'gl', 'gd', 'gp', 'gu', 'gt', 'gn', 'gw', 'gy', 'ht', 
+'hm', 'va', 'hn', 'hk', 'hu', 'is', 'in', 'id', 'ir', 'iq', 'ie', 'il', 
+'it', 'jm', 'jp', 'jo', 'kz', 'ke', 'ki', 'kp', 'kr', 'kw', 'kg', 'la', 
+'lv', 'lb', 'ls', 'lr', 'ly', 'li', 'lt', 'lu', 'mo', 'mk', 'mg', 'mw', 
+'my', 'mv', 'ml', 'mt', 'mh', 'mq', 'mr', 'mu', 'yt', 'mx', 'fm', 'md', 
+'mc', 'mn', 'ms', 'ma', 'mz', 'mm', 'na', 'nr', 'np', 'nl', 'an', 'nc', 
+'nz', 'ni', 'ne', 'ng', 'nu', 'nf', 'mp', 'no', 'om', 'pk', 'pw', 'ps', 
+'pa', 'pg', 'py', 'pe', 'ph', 'pn', 'pl', 'pt', 'pr', 'qa', 're', 'ro', 
+'ru', 'rw', 'sh', 'kn', 'lc', 'pm', 'vc', 'ws', 'sm', 'st', 'sa', 'sn', 
+'cs', 'sc', 'sl', 'sg', 'sk', 'si', 'sb', 'so', 'za', 'gs', 'es', 'lk', 
+'sd', 'sr', 'sj', 'sz', 'se', 'ch', 'sy', 'tw', 'tj', 'tz', 'th', 'tl', 
+'tg', 'tk', 'to', 'tt', 'tn', 'tr', 'tm', 'tc', 'tv', 'ug', 'ua', 'ae', 
+'gb', 'us', 'um', 'uy', 'uz', 'vu', 've', 'vn', 'vg', 'vi', 'wf', 'eh', 
+'ye', 'zm', 'zw');
+
+/* Flags, baby.. Flags. */
+@each $country in $countries {
+  .flag-#{$country}{ 
+    background: url($image-asset-url + 'flags/' + $country + '.png') no-repeat; 
+  }
+}
+
+/* Links ********************************************************************/
+
+.link-em{
+  a{
+    color: #333;
+    text-decoration: underline;
+    font-family: museo-slab, sans-serif;
+    &:hover{ color: #000; }
+    &:visited{ color: inherit; }
+    &:active{ color: $link-color-active; }
+  }
+}
+
+.em{
+  color: #333;
+  text-decoration: underline;
+  font-family: museo-slab, sans-serif;
+  &:hover{ color: #000; }
+  &:visited{ color: inherit; }
+  &:active{ color: $link-color-active; }
+}
+
+.link-hide{
+  text-decoration: inherit;
+  color: inherit;
+  outline: inherit;
+}
+
+a.subtle{
+  color: inherit;
+  font-weight: inherit;
+}
+
+a.strong{
+  color: inherit;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+a.primary{
+  color: $link-color-active;
+}
+
+/*****************************************************************************
+ Buttons
+ *****************************************************************************/
+
+a.session-dropdown{
+  display: inline-block;
+  width: 45px;
+  height: 24px;
+  background: url($image-asset-url + 'header-session-button.png') no-repeat 0px 0px;
+  text-indent: -9999px;
+  line-height: 24px;
+  &:active{ background-position: -45px 0px; }
+}
+
+a.message-icon{
+  padding-left: 16px;
+  background: url($image-asset-url + 'message-icon-small.png') no-repeat center left;
+}
+
+/* Advertising **************************************************************/
+
+.ad{ /* recommend use of .constrain */ 
+  span.marker{
+    display: block;
+    font-size: 10px;
+    color: #ccc;
+    border-bottom:1px dotted #ccc;
+    margin-bottom: 4px;
+    padding-bottom: 2px;
+  }
+}
+
+#advert-top{
+  width: 100%;
+  background-color: #333;
+  padding: 10px 0px 10px 0px;
+  @include inner-shadow(0px, -3px, 5px, #000);
+
+  .content{
+    display: block;
+    height: 100px; width: 840px;
+    margin: 0 auto;
+  }
+}
+
+/* Primary Navigation *******************************************************/
+
+header#header-primary{
+  $header-height: 53px;
+
+  width: 100%;
+  background-color: $bg-color-ultralight;
+
+  /* container for centered menu content */
+  .content{
+    height: $header-height;
+    background-color: $bg-color-light;
+  }
+
+  h1{
+    width: 150px;
+    height: 53px;
+    display: block;
+    text-indent: -9999px;
+    background: url($image-asset-url + 'header-primary-logo.png') no-repeat center left;
+  }
+
+  nav ul{
+    $nav-text-size: 11px;
+    $nav-text-tbmargin: ($header-height/2) - ($nav-text-size/2);
+    list-style: none;
+    margin-top: $nav-text-tbmargin;
+    font-size: $nav-text-size;
+    
+    li{
+      display: inline;
+      list-style-type: none;
+      a{ padding: 10px 10px $nav-text-tbmargin 10px; text-decoration: none !important; }
+    }
+    
+    li.selected{
+      a{
+        background-color: #fff;
+        color: $link-color-active;
+        @include rounded(5px, 5px, 0px, 0px);
+      }
+    }
+
+  }
+
+  form#query-site{
+    $query-input-height: 20px;
+    $query-input-tbmargin: ($header-height/2) - ($query-input-height/2);
+    display: inline-block;
+    padding: 0px;
+    margin-top: $query-input-tbmargin;
+    margin-right: 10px;
+    width: 200px;
+    input[type = 'text'], input[type = 'search']{
+      margin: 0px;
+      height: $query-input-height;
+      @include rounded-equal(15px);
+      outline: none;
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+  }
+
+}
+
+/*****************************************************************************
+ Profile Styling
+ ****************************************************************************/
+
+section.profile{
+  margin-top: 14px;
+
+  header#profile-header{
+    height: 48px;
+  }
+
+  img.photo{
+    border: 7px solid #333;
+    margin-right: -7px
+  }
+
+  h1{
+    font-family: adelle,serif;
+    max-width: 230px;
+    max-height: 33px;
+    display: inline-block;
+    padding: 14px 0px 14px 0px;
+    font-size: 23px;
+  }
+
+  #squawk-box{
+    background-color: #efefef;
+    display: inline;
+    float: left;
+    margin-left: -10px;
+    width: 430px + 60px;
+
+    @include rounded(0, 6px, 0, 6px);
+    .content{
+      height: 30px;
+      @include rounded(0, 3px, 0, 3px);
+      padding: 8px 8px 8px 56px;
+      margin-left: 0px;
+      border-left: none;
+      background-color: #ddd;
+    }
+    input.message{
+      height: 24px; width: 330px;
+    }
+    input.post-message-btn{
+      height: 24px; width: 64px; display: inline-block; margin-left: 8px; background-color: #ccc;
+    }
+  }
+
+  .sidebar-item + .sidebar-item{
+    margin-top: 10px;
+  }
+
+  #sidebar-right{
+    margin-top: 48px;
+  }
+
+  ol.notification-group{
+    list-style: none;
+    background: url($image-asset-url + 'activity-group-icon.png') no-repeat 18px 0px; /* TODO: make sure we change the position of the bg image in subsequent items */
+    li{
+      margin-left: 56px;
+      color: #666;
+    }
+    li + li{
+      margin-top: 8px;
+    }
+  }
+
+  ol + .notification-group{
+    background-position: 18px 10px;
+  }
+
+  ol.conversation{
+    list-style: none;
+    li{
+      display: block;
+      .profile-image{ float: left; }
+      
+      .content{
+        border-left: 3px solid #ccc;
+        margin-left: 56px;
+        padding-left: 8px;
+        min-height: 46px; /* match min height of profile pic */
+        font-size: 12px;
+        color: #666;
+      }
+
+      a[rel = 'friend']{
+        font-weight: bold;
+        color: $link-color-active;
+      }
+
+      p{ line-height: 16px; }
+      p + p{ margin-top: 6px; }
+    }
+    li.response{
+      .content{
+        border-left: 3px solid #999;
+      }
+    }
+    li.input{
+      span.icon{
+        display: block;
+        float: left;
+        height: 28px;
+        width: 28px;
+        background-color: #efefef;
+        margin-left: 18px;
+      }
+      input.response, textarea.response{
+        border-left: 3px solid #666;
+        background-color: #efefef;
+        border-top: 1px solid #666;
+        border-right: 1px solid #666;
+        border-bottom: 1px solid #666;
+        margin-left: 10px;
+        padding: 4px 4px 4px 8px;
+        outline: none;
+        font-size: 12px;
+        width: 350px;
+        max-width: 350px;
+      }
+    }
+    li + li{
+      margin-top: 10px;
+    }
+
+  }
+
+  .activity-stream{
+    margin-top: 20px; /* TODO: remove and bring into IDed version */
+    
+    a[rel~='friend']{
+      color: $primary-color;
+      text-decoration: inherit;
+      font-weight: bold;
+    }
+
+    .activity + .activity{
+      display: block;
+      margin-top: 10px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+    }
+  }
+
+  nav.profile ul{
+    list-style: none;
+    li{
+      height: 26px;
+      a{
+        display: block;
+        padding: 6px;
+        text-decoration: none;
+        &:visited{ color: #333; }
+        &:hover{ color: #000; }
+      }
+    }
+    li.selected{
+      background-color: #efefef;
+      border-right: 7px solid $primary-color;
+      a{color: $link-color-active;}
+    }
+  }
+
+}
+
+/*****************************************************************************
+ User Statistics
+ ****************************************************************************/
+
+#user-statistics{
+  height: 46px;
+  display: block;
+  ul{
+    list-style: none;
+    li{
+      display: inline-block;
+      text-align: center;
+      padding: 4px;
+      padding-top: 4px;
+    }
+    li + li{
+      border-left: 1px solid #ccc;
+      padding-left: 6px; /* compensate for odd inline-block rendering */
+    }
+    dt{
+      font: $font-label-small;
+      color: $color-label-small;
+      margin-bottom: 0px;
+    }
+    dd{
+      font-size: 22px; 
+      color: $link-color-active;
+      text-align: left;
+      display: block;
+      text-align: center;
+    }
+    dd img{
+      vertical-align: middle;
+      margin-right: 3px;
+    }
+  }
+}
+
+/*****************************************************************************
+ User Pieces
+ ****************************************************************************/
+
+#user-pieces{
+  margin: 10px;
+  ul{
+    list-style: none;
+    li{ height: 44px; text-align: left; background: url($image-asset-url + 'pieces-progress-bg.png') no-repeat -238px 0px;}
+    @each $percent in (0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100){
+      li.down-#{$percent}{ background-position: -238px + ($percent/10 * 23.8), 0px; }
+    }
+    &:first-child{ border-top: 1px solid #999; }
+    &:last-child{ border-bottom: 1px solid #999; }
+    li + li{ border-top: 1px solid #ccc; }
+    .piece-name{padding: 14px 14px 14px 8px; display: block;}
+  }
+}
